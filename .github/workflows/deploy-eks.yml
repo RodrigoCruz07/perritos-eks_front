@@ -6,7 +6,7 @@ on:
   workflow_dispatch: {}
 
 env:
-  ECR_REPO_FRONTEND: tienda-frontend
+  ECR_REPO_FRONTEND: frontend
 
 jobs:
   build-and-deploy:

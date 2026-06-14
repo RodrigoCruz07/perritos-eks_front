@@ -59,7 +59,7 @@ jobs:
           kubectl apply -f k8s-front/namespace.yaml
           kubectl apply -f k8s-front/frontend-deployment.yaml -n $EKS_NAMESPACE
           kubectl apply -f k8s-front/frontend-service.yaml -n $EKS_NAMESPACE
-          if [ -f k8s/frontend-hpa.yaml ]; then kubectl apply -f k8s/frontend-hpa.yaml -n $EKS_NAMESPACE; fi
+          kubectl apply -f k8s-front/frontend-hpa.yaml -n $EKS_NAMESPACE
           
           kubectl set image deployment/tienda-frontend \
             frontend=$ECR_REGISTRY/${ECR_REPO_FRONTEND}:${IMAGE_TAG} \

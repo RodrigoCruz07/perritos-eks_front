@@ -56,9 +56,9 @@ jobs:
           ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
           EKS_NAMESPACE: ${{ secrets.EKS_NAMESPACE }}
         run: |
-          kubectl apply -f k8s/namespace.yaml
-          kubectl apply -f k8s/frontend-deployment.yaml -n $EKS_NAMESPACE
-          kubectl apply -f k8s/frontend-service.yaml -n $EKS_NAMESPACE
+          kubectl apply -f k8s-front/namespace.yaml
+          kubectl apply -f k8s-front/frontend-deployment.yaml -n $EKS_NAMESPACE
+          kubectl apply -f k8s-front/frontend-service.yaml -n $EKS_NAMESPACE
           if [ -f k8s/frontend-hpa.yaml ]; then kubectl apply -f k8s/frontend-hpa.yaml -n $EKS_NAMESPACE; fi
           
           kubectl set image deployment/tienda-frontend \
